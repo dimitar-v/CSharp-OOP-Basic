@@ -11,17 +11,26 @@ namespace OldestFamilyMember
 
         public Family()
         {
-            members = new List<Person>();
+            this.Members = new List<Person>();
+        }
+
+        public List<Person> Members
+        {
+            get => this.members;
+            set => this.members = value;
         }
 
         public void AddMember(Person member)
         {
-            members.Add(member);
+            if (member == null)
+            {
+                throw new Exception();
+            }
+
+            this.Members.Add(member);
         }
 
-        public Person GetOldestMember()
-        {
-            return members.OrderByDescending(m => m.Age).First();
-        }
+        public Person GetOldestMember() =>
+            this.Members.OrderByDescending(m => m.Age).FirstOrDefault();
     }
 }

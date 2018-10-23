@@ -57,13 +57,18 @@ namespace CompanyRoster
                     AverageSalary = departmantGroup.Average(e => e.Salary)
                 };
 
-            string dep = departmentAverageSalary
+            string topDepartment = departmentAverageSalary
                 .OrderByDescending(x => x.AverageSalary)
                 .First()
                 .Department;
 
-            Console.WriteLine("Highest Average Salary: " + dep);
-            employees.Where(e => e.Department == dep)
+            // variant 2
+            //string topDepartment = employees.GroupBy(e => e.Department)
+            //                                .OrderByDescending(x => x.Average(s => s.Salary))
+            //                                .FirstOrDefault().Key;
+
+            Console.WriteLine("Highest Average Salary: " + topDepartment);
+            employees.Where(e => e.Department == topDepartment)
                 .OrderByDescending(e => e.Salary)
                 .ToList()
                 .ForEach(e => Console.WriteLine($"{e.Name} {e.Salary:F2} {e.Email} {e.Age}"));

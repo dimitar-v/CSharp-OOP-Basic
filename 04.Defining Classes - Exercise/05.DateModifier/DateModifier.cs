@@ -11,8 +11,20 @@ namespace DateModifier
 
         public DateModifier(string start, string end)
         {
-            startDate = DateTime.Parse(start);
-            endDate = DateTime.Parse(end);
+            this.StartDate = DateTime.Parse(start);
+            this.EndDate = DateTime.Parse(end);
+        }
+
+        public DateTime StartDate
+        {
+            get => this.startDate;
+            set => this.startDate = value;
+        }
+
+        public DateTime EndDate
+        {
+            get => this.endDate;
+            set => this.endDate = value;
         }
 
         public double DaysBetweenDate ()
