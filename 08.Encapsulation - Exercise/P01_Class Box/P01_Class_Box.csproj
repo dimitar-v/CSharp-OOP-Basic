@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RootNamespace>Box</RootNamespace>
+    <AssemblyName>P01_Class_Box</AssemblyName>
+  </PropertyGroup>
+
+</Project>
