@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Pizza_Calories
 {
@@ -30,25 +29,21 @@ namespace Pizza_Calories
                 name = value;
             }
         }
-        internal List<Topping> Toppings
-        {
-            get => toppings;
-            set
-            {
-                if (toppings.Count > 10)
-                {
-                    throw new ArgumentException("Number of toppings should be in range [0..10].");
-                }
-                toppings = value;
-            }
-        }
+
         public Dough Dough { get => dough; set => dough = value; }
 
-        public void AddTopping(Topping topping) 
-            => this.Toppings.Add(topping);
+        public void AddTopping(Topping topping)
+        {
+            if (toppings.Count > 10)
+            {
+                throw new ArgumentException("Number of toppings should be in range [0..10].");
+            }
+            this.toppings.Add(topping);
+        }
+       
 
         private double GetCallories 
-            => Dough.GetCal + Toppings.Sum(t => t.GetCal);
+            => Dough.GetCal + toppings.Sum(t => t.GetCal);
 
         public override string ToString()
             => $"{Name} - {this.GetCallories:F2} Calories.";

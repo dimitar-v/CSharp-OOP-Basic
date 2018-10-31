@@ -45,7 +45,7 @@ namespace Pizza_Calories
                 var type = Char.ToUpper(this.type[0]) + this.type.Substring(1);
                 if (value < 1 || value > 50)
                 {
-                    throw new ArgumentException($"{type} weight should be in the range[1..50].");
+                    throw new ArgumentException($"{type} weight should be in the range [1..50].");
                 }
                 weight = value;
             }

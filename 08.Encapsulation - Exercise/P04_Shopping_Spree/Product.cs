@@ -32,7 +32,7 @@ namespace Shopping_Spree
             get { return name; }
             private set
             {
-                if (string.IsNullOrWhiteSpace(value))
+                if (string.IsNullOrWhiteSpace(value) || string.IsNullOrEmpty(value))
                 {
                     throw new ArgumentException("Name cannot be empty");
                 }
