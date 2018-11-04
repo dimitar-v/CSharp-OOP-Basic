@@ -1,9 +1,11 @@
-﻿namespace P06_Animals
+﻿namespace Farm
 {
-    class Tomcat : Cat
+    public class Tomcat : Cat
     {
+        private const string MALE = "Male";
+
         public Tomcat(string name, int age)
-            : base(name, age, "Male")
+            : base(name, age, MALE)
         {   }
 
         public override string ProduceSound()

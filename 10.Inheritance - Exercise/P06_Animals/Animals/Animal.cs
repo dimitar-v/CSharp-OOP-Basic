@@ -1,14 +1,14 @@
 ﻿using System;
 
-namespace P06_Animals
+namespace Farm
 {
-    class Animals
+    public abstract class Animal
     {
         private string name;
         private int age;
         private string gender;
 
-        public Animals(string name, int age, string gender)
+        public Animal(string name, int age, string gender)
         {
             Name = name;
             Age = age;
@@ -18,7 +18,7 @@ namespace P06_Animals
         public string Name
         {
             get => name;
-            set
+            private set
             {
                 if (value.Length < 1)
                 {
@@ -31,7 +31,7 @@ namespace P06_Animals
         public int Age
         {
             get => age;
-            set
+            private set
             {
                 if (value < 0)
                 {
@@ -44,7 +44,7 @@ namespace P06_Animals
         public string Gender
         {
             get => gender;
-            set
+            private set
             {
                 if (value.ToLower() != "male" && value.ToLower() != "female")
                 {
