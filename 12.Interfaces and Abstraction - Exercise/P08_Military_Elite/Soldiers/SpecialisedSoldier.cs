@@ -1,4 +1,5 @@
-﻿using MilitaryElite.Interfaces;
+﻿using MilitaryElite.Enums;
+using MilitaryElite.Interfaces;
 using System;
 
 namespace MilitaryElite.Soldiers
@@ -7,24 +8,13 @@ namespace MilitaryElite.Soldiers
     {
         private string corps;
 
-        public SpecialisedSoldier(string id, string firstName, string lastName, decimal salary, string corps)
+        public SpecialisedSoldier(string id, string firstName, string lastName, decimal salary, Corps corps)
             : base(id, firstName, lastName, salary)
         {
-            Corps = corps;
+            Corps =  corps;
         }
 
-        public string Corps
-        {
-            get => corps;
-            private set
-            {
-                if (value != "Airforces" && value != "Marines")
-                {
-                    throw new ArgumentException("Invalid argument!");
-                }
-                corps = value;
-            }
-        }
+        public Corps Corps { get;  }
 
         public override string ToString()
             => base.ToString() + Environment.NewLine

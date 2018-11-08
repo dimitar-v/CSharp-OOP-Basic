@@ -1,4 +1,6 @@
-﻿using MilitaryElite.Interfaces;
+﻿using MilitaryElite.Enums;
+using MilitaryElite.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,29 +8,34 @@ namespace MilitaryElite.Soldiers
 {
     public class Engineer : SpecialisedSoldier, IEngineer
     {
-        public Engineer(string id, string firstName, string lastName, decimal salary, string corps)
+        private List<IRepair> repairs;
+
+        public Engineer(string id, string firstName, string lastName, decimal salary, Corps corps)
             : base(id, firstName, lastName, salary, corps)
         {
-            Repairs = new List<KeyValuePair<string, int>>();
+            repairs = new List<IRepair>();
         }
 
-        public List<KeyValuePair<string, int>> Repairs { get; private set; }
+        public IReadOnlyCollection<IRepair> Repairs => repairs.AsReadOnly();
 
-        public void AddRepairs(string partName, int hours)
-        {
-            Repairs.Add(new KeyValuePair<string, int>(partName, hours));
-        }
+        public void AddRepair(IRepair repair)
+            => repairs.Add(repair);
 
         public override string ToString()
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine(base.ToString());
-            sb.AppendLine("Repairs:");
-            foreach (var kvp in Repairs)
-            {
-                sb.AppendLine($"  Part Name: {kvp.Key} Hours Worked: {kvp.Value}");
-            }
-            return sb.ToString().Trim();
-        }
+            => base.ToString() + Environment.NewLine
+            + "Repairs:" + (Repairs.Count != 0 ? Environment.NewLine + "  " : "")
+            + string.Join(Environment.NewLine + "  ", Repairs);
+
+
+        //{
+        //    StringBuilder sb = new StringBuilder();
+        //    sb.AppendLine(base.ToString());
+        //    sb.AppendLine("Repairs:");
+        //    foreach (var repair in Repairs)
+        //    {
+        //        sb.AppendLine($"  Part Name: {repair.PartName} Hours Worked: {repair.HoursWorked}");
+        //    }
+        //    return sb.ToString().Trim();
+        //}
     }
 }

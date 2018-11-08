@@ -11,6 +11,8 @@ namespace MilitaryElite.Soldiers
             LastName = lastName;
         }
 
+        // TODO: Add validation
+
         public string Id { get; private set; }
 
         public string FirstName { get; private set; }

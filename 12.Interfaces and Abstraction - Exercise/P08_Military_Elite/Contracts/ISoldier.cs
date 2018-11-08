@@ -1,6 +1,6 @@
 ﻿namespace MilitaryElite.Interfaces
 {
-    interface ISoldier
+    public interface ISoldier
     {
         string Id { get; }
         string FirstName { get; }

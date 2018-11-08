@@ -1,6 +1,6 @@
 ﻿namespace MilitaryElite.Interfaces
 {
-    interface ISpy
+    public interface ISpy : ISoldier
     {
         int CodeNunber { get; }
     }
