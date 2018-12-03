@@ -8,7 +8,7 @@ namespace AnimalCentre.Models.Entities.Animals
         private int happiness;
         private int energy;
 
-        protected Animal(string name, int happiness, int energy, int procedureTime)
+        protected Animal(string name, int energy , int happiness, int procedureTime)
         {
             Name = name;
             Happiness = happiness;
